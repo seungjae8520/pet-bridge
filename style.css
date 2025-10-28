@@ -14,6 +14,68 @@ body {
     position: relative;
 }
 
+/* 로딩 화면 */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 480px;
+    height: 100%;
+    background: linear-gradient(135deg, #2d8659 0%, #1a5f3c 100%);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.loading-screen.active {
+    display: flex;
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.logo-animation {
+    animation: logoFadeIn 1s ease-in-out;
+}
+
+.logo-text {
+    font-size: 32px;
+    color: white;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(255,255,255,0.3);
+    border-top: 4px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes logoFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 /* 헤더 */
 .header {
     background-color: #2d8659;
@@ -321,6 +383,49 @@ body {
     font-size: 14px;
 }
 
+/* 광고 배너 */
+.ad-banner {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    animation: adSlideIn 0.5s ease-out;
+}
+
+@keyframes adSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ad-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ad-badge {
+    background-color: white;
+    color: #ff6b6b;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.ad-content p {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    flex: 1;
+}
+
 /* 커뮤니티 */
 .community-container {
     position: relative;
@@ -338,6 +443,13 @@ body {
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.post-item:active {
+    transform: scale(0.98);
+    background-color: #f9f9f9;
 }
 
 .post-header {
@@ -369,6 +481,33 @@ body {
     gap: 15px;
     font-size: 13px;
     color: #666;
+    align-items: center;
+}
+
+.like-btn {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.like-btn:active {
+    background-color: #f0f0f0;
+}
+
+.like-btn.liked .like-icon {
+    animation: likeAnimation 0.3s ease;
+}
+
+@keyframes likeAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
 }
 
 .write-btn {
@@ -561,4 +700,221 @@ body {
 .distance {
     color: #2d8659 !important;
     font-weight: 600;
+}
+
+/* 상품 상세 페이지 */
+.product-detail-container {
+    padding-bottom: 80px;
+}
+
+.product-detail-img {
+    width: 100%;
+    height: 300px;
+    background-color: #f0f0f0;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 120px;
+    margin-bottom: 20px;
+}
+
+.product-detail-info h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.product-detail-price {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2d8659;
+    margin-bottom: 20px;
+}
+
+.product-detail-desc {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.product-detail-desc h3 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.product-detail-desc p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.product-detail-desc ul {
+    list-style: none;
+    padding: 0;
+}
+
+.product-detail-desc li {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.product-actions {
+    display: flex;
+    gap: 10px;
+    position: fixed;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 480px;
+    padding: 0 20px;
+    background-color: #f5f5f5;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.cart-btn, .buy-btn {
+    flex: 1;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cart-btn {
+    background-color: white;
+    color: #2d8659;
+    border: 2px solid #2d8659;
+}
+
+.cart-btn:active {
+    background-color: #f0f0f0;
+}
+
+.buy-btn {
+    background-color: #2d8659;
+    color: white;
+}
+
+.buy-btn:active {
+    background-color: #246b47;
+}
+
+/* 게시글 상세 페이지 */
+.post-detail-container {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.post-detail-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.post-detail-content {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.post-detail-footer {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.comments-section h3 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.comment-count {
+    color: #2d8659;
+}
+
+.comment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.comment-item {
+    padding: 12px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.comment-author {
+    font-weight: 600;
+    font-size: 13px;
+    color: #333;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.comment-text {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 6px;
+}
+
+.comment-time {
+    font-size: 11px;
+    color: #999;
+}
+
+.comment-input-box {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.comment-input {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.comment-input:focus {
+    outline: none;
+    border-color: #2d8659;
+}
+
+.comment-submit-btn {
+    padding: 12px 20px;
+    background-color: #2d8659;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.comment-submit-btn:active {
+    background-color: #246b47;
 }

@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- 로딩 화면 -->
+    <div id="loadingScreen" class="loading-screen active">
+        <div class="loading-content">
+            <div class="logo-animation">
+                <h1 class="logo-text">🐾 Pet Bridge 🐾</h1>
+            </div>
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
     <!-- 헤더 -->
     <header class="header">
         <h1>Pet Bridge</h1>
@@ -41,39 +51,56 @@
         <!-- 커뮤니티 화면 -->
         <div id="communityView" class="view">
             <div class="community-container">
+                <!-- 광고 배너 -->
+                <div class="ad-banner">
+                    <div class="ad-content">
+                        <span class="ad-badge">광고</span>
+                        <p>🎉 신규 회원 가입 시 3,000원 쿠폰!</p>
+                    </div>
+                </div>
+
                 <h2>커뮤니티</h2>
                 <div class="post-list">
-                    <div class="post-item">
+                    <div class="post-item" data-post-id="1">
                         <div class="post-header">
                             <span class="post-author">반려인123</span>
                             <span class="post-time">10분 전</span>
                         </div>
                         <div class="post-content">우리 강아지 산책하기 좋은 곳 추천해주세요!</div>
                         <div class="post-footer">
-                            <span>❤️ 12</span>
+                            <button class="like-btn" data-likes="12">
+                                <span class="like-icon">❤️</span>
+                                <span class="like-count">12</span>
+                            </button>
                             <span>💬 5</span>
                         </div>
                     </div>
-                    <div class="post-item">
+                    <div class="post-item" data-post-id="2">
                         <div class="post-header">
                             <span class="post-author">고양이집사</span>
                             <span class="post-time">1시간 전</span>
                         </div>
                         <div class="post-content">고양이 사료 추천 부탁드려요~</div>
                         <div class="post-footer">
-                            <span>❤️ 8</span>
+                            <button class="like-btn" data-likes="8">
+                                <span class="like-icon">❤️</span>
+                                <span class="like-count">8</span>
+                            </button>
                             <span>💬 3</span>
                         </div>
                     </div>
-                    <div class="post-item">
+                    <div class="post-item" data-post-id="3">
                         <div class="post-header">
                             <span class="post-author">햄스터러버</span>
                             <span class="post-time">2시간 전</span>
                         </div>
                         <div class="post-content">햄스터 키우시는 분들 모여요!</div>
                         <div class="post-footer">
-                            <span>❤️ 15</span>
-                            <span>💬  7</span>
+                            <button class="like-btn" data-likes="15">
+                                <span class="like-icon">❤️</span>
+                                <span class="like-count">15</span>
+                            </button>
+                            <span>💬 7</span>
                         </div>
                     </div>
                 </div>
@@ -140,6 +167,72 @@
                             <h3>전연령 강아지 사료 10kg</h3>
                             <p class="product-price">55,000원</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 상품 상세 페이지 -->
+        <div id="productDetailView" class="view">
+            <div class="product-detail-container">
+                <button class="back-btn" id="productBackBtn">← 뒤로</button>
+                <div class="product-detail-img" id="productDetailImg">🐕</div>
+                <div class="product-detail-info">
+                    <h2 id="productDetailName">프리미엄 강아지 사료 5kg</h2>
+                    <p class="product-detail-price" id="productDetailPrice">35,000원</p>
+                    <div class="product-detail-desc">
+                        <h3>상품 설명</h3>
+                        <p>전 연령대의 반려견을 위한 프리미엄 사료입니다.</p>
+                        <ul>
+                            <li>✓ 100% 자연 재료</li>
+                            <li>✓ 인공 첨가물 무첨가</li>
+                            <li>✓ 수의사 추천</li>
+                            <li>✓ 소화가 잘되는 레시피</li>
+                        </ul>
+                    </div>
+                    <div class="product-actions">
+                        <button class="cart-btn">🛒 장바구니</button>
+                        <button class="buy-btn">바로 구매</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 게시글 상세 화면 -->
+        <div id="postDetailView" class="view">
+            <div class="post-detail-container">
+                <button class="back-btn" id="postBackBtn">← 뒤로</button>
+                <div class="post-detail-header">
+                    <span class="post-author" id="detailAuthor">반려인123</span>
+                    <span class="post-time" id="detailTime">10분 전</span>
+                </div>
+                <div class="post-detail-content" id="detailContent">
+                    우리 강아지 산책하기 좋은 곳 추천해주세요!
+                </div>
+                <div class="post-detail-footer">
+                    <button class="like-btn detail-like" data-likes="12">
+                        <span class="like-icon">❤️</span>
+                        <span class="like-count">12</span>
+                    </button>
+                    <span>💬 5</span>
+                </div>
+                <div class="comments-section">
+                    <h3>댓글 <span class="comment-count">5</span></h3>
+                    <div class="comment-list">
+                        <div class="comment-item">
+                            <span class="comment-author">강아지사랑</span>
+                            <p class="comment-text">한강 공원 추천합니다!</p>
+                            <span class="comment-time">5분 전</span>
+                        </div>
+                        <div class="comment-item">
+                            <span class="comment-author">멍멍이집사</span>
+                            <p class="comment-text">올림픽공원도 좋아요~</p>
+                            <span class="comment-time">3분 전</span>
+                        </div>
+                    </div>
+                    <div class="comment-input-box">
+                        <input type="text" placeholder="댓글을 입력하세요..." class="comment-input">
+                        <button class="comment-submit-btn">등록</button>
                     </div>
                 </div>
             </div>
