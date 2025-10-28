@@ -193,6 +193,70 @@ body {
     color: white;
 }
 
+/* 홈 광고 배너 섹션 */
+.home-ad-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.home-ad-banner {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.home-ad-banner:nth-child(2) {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.home-ad-banner:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.home-ad-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.home-ad-badge {
+    background-color: rgba(255,255,255,0.9);
+    color: #667eea;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.home-ad-banner:nth-child(2) .home-ad-badge {
+    color: #f5576c;
+}
+
+.home-ad-text {
+    flex: 1;
+}
+
+.home-ad-text h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 4px;
+}
+
+.home-ad-text p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.9);
+    margin: 0;
+}
+
 /* 하단 네비게이션 */
 .bottom-nav {
     position: fixed;
