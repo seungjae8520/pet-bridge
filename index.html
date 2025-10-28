@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pet Bridge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 헤더 -->
+    <header class="header">
+        <h1>Pet Bridge</h1>
+    </header>
+
+    <!-- 메인 컨텐츠 -->
+    <main class="main-content">
+        <!-- 홈 화면 -->
+        <div id="homeView" class="view active">
+            <!-- 카테고리 선택 버튼 -->
+            <button class="category-btn" id="categoryBtn">
+                <span id="selectedCategory">카테고리</span>
+            </button>
+
+            <!-- 쇼핑몰 그리드 -->
+            <div class="shopping-grid">
+                <button class="shop-item" data-category="사료">사료</button>
+                <button class="shop-item" data-category="간식">간식</button>
+                <button class="shop-item" data-category="영양제">영양제</button>
+                <button class="shop-item" data-category="용품">용품</button>
+                <button class="shop-item" data-category="산책용품">산책용품</button>
+                <button class="shop-item" data-category="의류">의류</button>
+            </div>
+
+            <!-- 펫시터 찾기 버튼 -->
+            <button class="action-btn" id="petsitterBtn">펫시터 찾기</button>
+
+            <!-- 근처 병원/호텔 찾기 버튼 -->
+            <button class="action-btn" id="mapBtn">근처 병원/호텔 찾기</button>
+        </div>
+
+        <!-- 커뮤니티 화면 -->
+        <div id="communityView" class="view">
+            <div class="community-container">
+                <h2>커뮤니티</h2>
+                <div class="post-list">
+                    <div class="post-item">
+                        <div class="post-header">
+                            <span class="post-author">반려인123</span>
+                            <span class="post-time">10분 전</span>
+                        </div>
+                        <div class="post-content">우리 강아지 산책하기 좋은 곳 추천해주세요!</div>
+                        <div class="post-footer">
+                            <span>❤️ 12</span>
+                            <span>💬 5</span>
+                        </div>
+                    </div>
+                    <div class="post-item">
+                        <div class="post-header">
+                            <span class="post-author">고양이집사</span>
+                            <span class="post-time">1시간 전</span>
+                        </div>
+                        <div class="post-content">고양이 사료 추천 부탁드려요~</div>
+                        <div class="post-footer">
+                            <span>❤️ 8</span>
+                            <span>💬 3</span>
+                        </div>
+                    </div>
+                    <div class="post-item">
+                        <div class="post-header">
+                            <span class="post-author">햄스터러버</span>
+                            <span class="post-time">2시간 전</span>
+                        </div>
+                        <div class="post-content">햄스터 키우시는 분들 모여요!</div>
+                        <div class="post-footer">
+                            <span>❤️ 15</span>
+                            <span>💬  7</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="write-btn action-btn">✏️ 글쓰기</button>
+            </div>
+        </div>
+
+        <!-- 설정 화면 -->
+        <div id="settingsView" class="view">
+            <div class="settings-container">
+                <h2>설정</h2>
+                <div class="settings-list">
+                    <div class="settings-item">
+                        <span>프로필 설정</span>
+                        <span class="arrow">›</span>
+                    </div>
+                    <div class="settings-item">
+                        <span>알림 설정</span>
+                        <span class="arrow">›</span>
+                    </div>
+                    <div class="settings-item">
+                        <span>결제 정보</span>
+                        <span class="arrow">›</span>
+                    </div>
+                    <div class="settings-item">
+                        <span>고객센터</span>
+                        <span class="arrow">›</span>
+                    </div>
+                    <div class="settings-item">
+                        <span>앱 정보</span>
+                        <span class="arrow">›</span>
+                    </div>
+                    <div class="settings-item">
+                        <span>로그아웃</span>
+                        <span class="arrow">›</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 쇼핑몰 상세 화면 -->
+        <div id="shopView" class="view">
+            <div class="shop-container">
+                <button class="back-btn" id="shopBackBtn">← 뒤로</button>
+                <h2 id="shopTitle">사료</h2>
+                <div class="product-list">
+                    <div class="product-item">
+                        <div class="product-img">🐕</div>
+                        <div class="product-info">
+                            <h3>프리미엄 강아지 사료 5kg</h3>
+                            <p class="product-price">35,000원</p>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-img">🐕</div>
+                        <div class="product-info">
+                            <h3>자연주의 강아지 사료 3kg</h3>
+                            <p class="product-price">28,000원</p>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-img">🐕</div>
+                        <div class="product-info">
+                            <h3>전연령 강아지 사료 10kg</h3>
+                            <p class="product-price">55,000원</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 지도 화면 -->
+        <div id="mapView" class="view">
+            <div class="map-container">
+                <button class="back-btn" id="mapBackBtn">← 뒤로</button>
+                <h2>근처 병원/호텔</h2>
+                <div class="map-mock">
+                    <div class="map-marker" style="top: 30%; left: 40%;">
+                        <span>🏥</span>
+                        <div class="marker-label">24시 동물병원</div>
+                    </div>
+                    <div class="map-marker" style="top: 50%; left: 60%;">
+                        <span>🏨</span>
+                        <div class="marker-label">펫 호텔</div>
+                    </div>
+                    <div class="map-marker" style="top: 70%; left: 30%;">
+                        <span>🏥</span>
+                        <div class="marker-label">우리 동물병원</div>
+                    </div>
+                </div>
+                <div class="place-list">
+                    <div class="place-item">
+                        <h3>🏥 24시 동물병원</h3>
+                        <p>서울시 강남구 테헤란로 123</p>
+                        <p class="distance">500m</p>
+                    </div>
+                    <div class="place-item">
+                        <h3>🏨 펫 호텔</h3>
+                        <p>서울시 강남구 역삼동 456</p>
+                        <p class="distance">800m</p>
+                    </div>
+                    <div class="place-item">
+                        <h3>🏥 우리 동물병원</h3>
+                        <p>서울시 강남구 선릉로 789</p>
+                        <p class="distance">1.2km</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 하단 네비게이션 -->
+    <nav class="bottom-nav">
+        <button class="nav-item active" data-view="home">
+            <span class="nav-label">홈</span>
+        </button>
+        <button class="nav-item" data-view="community">
+            <span class="nav-label">커뮤니티</span>
+        </button>
+        <button class="nav-item" data-view="settings">
+            <span class="nav-label">설정</span>
+        </button>
+    </nav>
+
+    <!-- 카테고리 선택 모달 -->
+    <div id="categoryModal" class="modal">
+        <div class="modal-content">
+            <h2>카테고리 선택</h2>
+            <div class="category-options">
+                <button class="category-option" data-pet="강아지">🐕 강아지</button>
+                <button class="category-option" data-pet="고양이">🐱 고양이</button>
+                <button class="category-option" data-pet="소동물">🐹 소동물</button>
+            </div>
+            <button class="modal-btn" id="categoryConfirm">완료</button>
+            <button class="modal-btn cancel" id="categoryCancel">취소</button>
+        </div>
+    </div>
+
+    <!-- 펫시터 신청 모달 -->
+    <div id="petsitterModal" class="modal">
+        <div class="modal-content">
+            <h2>펫시터 신청</h2>
+            <form id="petsitterForm">
+                <div class="form-group">
+                    <label>성함</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label>연락처</label>
+                    <input type="tel" id="phone" placeholder="010-0000-0000" required>
+                </div>
+                <div class="form-group">
+                    <label>주소</label>
+                    <input type="text" id="address" required>
+                </div>
+                <div class="form-group">
+                    <label>시작 시간</label>
+                    <input type="datetime-local" id="startTime" required>
+                </div>
+                <div class="form-group">
+                    <label>종료 시간</label>
+                    <input type="datetime-local" id="endTime" required>
+                </div>
+                <button type="submit" class="modal-btn">펫시터 찾기</button>
+                <button type="button" class="modal-btn cancel" id="petsitterCancel">취소</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 펫시터 찾기 완료 모달 -->
+    <div id="searchingModal" class="modal">
+        <div class="modal-content">
+            <div class="searching-animation">
+                <div class="spinner"></div>
+                <h2>주변 펫시터를 찾고 있어요</h2>
+                <p>잠시만 기다려주세요...</p>
+            </div>
+            <button class="modal-btn" id="searchingClose">확인</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
